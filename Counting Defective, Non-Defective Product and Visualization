@@ -1,0 +1,21 @@
+df.describe()
+
+# Display count of Defective & Non-Defective products
+def_count = df[df['Quality Check Outcome'] == 'Defective'].shape[0]
+non_def_count = df[df['Quality Check Outcome'] == 'Non-Defective'].shape[0]
+print(f"Number of Defective Products: {def_count}")
+print(f"Number of Non-Defective Products: {non_def_count}")
+
+# Interpretation based on counts
+total_products = len(df)
+def_percentage = (def_count / total_products) * 100
+
+print(f"Percentage of Defective Products: {def_percentage:.2f}%")
+# Visualizing the distribution of Defective and Non-Defective products
+plt.figure(figsize=(3,4))
+plt.bar(['Defective', 'Non-Defective'], [def_count, non_def_count], color= 'orange')
+plt.title('Defective and Non-Defective Distributions')
+plt.xlabel('Type of product')
+plt.ylabel('Count')
+plt.grid(True)
+plt.show()
