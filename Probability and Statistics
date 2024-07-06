@@ -1,0 +1,12 @@
+# Estimating p (Probability of Defective Product)
+probability_def = df[df['Quality Check Outcome'] == 'Defective'].count()[0] /len(df)
+print(f"Estimated probability of a product being defective (p): {probability_def:.4f}")
+# Probability of more than 10 defective products out of the next 50 using binomial distribution
+extra= 50
+more_than_10_def= 1 - binom.cdf(10, extra, probability_def)
+print(f"Probability of more than 10 defective products out of the next 50: {more_than_10_def:.4f}")
+
+
+Estimated probability of a product being defective (p): 0.0900
+Probability of more than 10 defective products out of the next 50: 0.0043
+Visualisation: Display of a Bar Chart: The code generates a bar chart that depicts the number of defective and non-defective items. This visualisation provides a graphical depiction of the distribution, making the ratio of faulty to non-defective items easier to understand. Probability of Defective Product Estimation (p): Based on the proportion of defective items in the given dataset, it computes the estimated probability 'p' of a product being defective.This predicted 'p' value offers information on the likelihood of encountering defective items in this manufacturing line. Probability Calculation for Future Defective Products: The code determines the likelihood of having more than 10 defective products out of the following 50 items using the estimated 'p' value.
