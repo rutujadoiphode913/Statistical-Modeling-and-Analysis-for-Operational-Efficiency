@@ -1,0 +1,15 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import binom
+
+# Generating the dataset using Binomial Distribution
+np.random.seed(42)
+n = 100 # Total products
+p = 0.1 # Probability of a product being defective
+data = np.random.binomial(1, p, n)
+outcome_map = {1: 'Defective', 0: 'Non-Defective'}
+data = [outcome_map[i] for i in data]
+df = pd.DataFrame(data, columns=['Quality Check Outcome'])
+# Display the first few rows of the dataframe
+df.head()
